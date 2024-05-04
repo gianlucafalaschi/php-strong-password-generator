@@ -26,9 +26,6 @@ $passwordLength = isset($_GET['passwLength']) ? intval($_GET['passwLength']) : n
 /* lista dei caratteri possibili per la password */
 $charactersArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '!', '"', '$', '%', '&', '/', '(', ')', '=', '?', '{', '[', ']', '}', '\\', '+', '*', '-', '#', "'", '_', ',', '.', ';', ':', '<', '>', '@'];
 
-/*  Array inizialmente vuoto che contiene i caratteri della password */
-$passwordArray = [];
-
 
 /* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
 lunghezza della password decisa dallo user. Le chiavi degli elementi vengono salvate nella variabile  */

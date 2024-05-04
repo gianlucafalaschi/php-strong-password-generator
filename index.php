@@ -30,15 +30,8 @@ $charactersArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
 $passwordArray = [];
 
 /* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
-lunghezza della password decisa dallo user  */
+lunghezza della password decisa dallo user. Le chiavi degli elementi vengono salvate nella variabile  */
 $randomElements = array_rand($charactersArray,$passwordLength);
-
-
-
-// return: un array di stringhe che rappresentano i caratteri delle password
-/* function generatePassword() */
-
-
 
 /* fino a che l'array $passwordArray non contiene un numero di elementi uguali a quelli 
 dichiarati dallo user nella input,   */
@@ -51,16 +44,28 @@ dichiarati dallo user nella input,   */
 // }
 
 
+// funzione che crea una password random
+// $elementsKeys => array che contiene la chiave degli elementi di una array 
+// $arrayOfCharacters => array che contiene tutti i caratteri
+// return: $charactersList un array di stringhe che rappresentano i caratteri delle password
+function generatePassword($elementsKeys, $arrayOfCharacters) {
+    $charactersList;
+    foreach($elementsKeys as $elementsKey) {
+        /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
+         $charactersList[] = strval($arrayOfCharacters[$elementsKey]);
+    
+     }
+     return $charactersList;
+}
 
 
-var_dump($passwordArray);
-foreach($randomElements as $randomElement) {
-    var_dump($charactersArray[$randomElement]);
-    /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
-     $passwordArray[] = strval($charactersArray[$randomElement]);
+// foreach($randomElements as $randomElement) {
+//     var_dump($charactersArray[$randomElement]);
+//     /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
+//      $passwordArray[] = strval($charactersArray[$randomElement]);
 
- }
-var_dump($passwordArray);
+//  }
+
 
 
 ?>

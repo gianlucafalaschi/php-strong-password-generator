@@ -18,9 +18,13 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 
 <?php 
+/* incollo il contenuto del file functions */
+require_once __DIR__ . '/functions.php';
+
+
 /* se  l'input 'passwLength' e' stato dato dall'utente la variabile $passwordLength  prende quel valore 
 trasformato in un numero intero, 
-altrimenti prende valore di stringa vuota'  */
+altrimenti prende valore  null'  */
 $passwordLength = isset($_GET['passwLength']) ? intval($_GET['passwLength']) : null;
 
 /* lista dei caratteri possibili per la password */
@@ -33,21 +37,6 @@ $randomElements = array_rand($charactersArray,$passwordLength);
 
 /* La funzione genera elementi random che vengono salvati nell'array */
 $passwordArray = generatePasswordElement($randomElements, $charactersArray);
-
-
-// funzione che crea una password random
-// $elementsKeys => array che contiene la chiave degli elementi di una array 
-// $arrayOfCharacters => array che contiene tutti i caratteri
-// return: $charactersList un array di stringhe che rappresentano i caratteri delle password
-function generatePasswordElement($elementsKeys, $arrayOfCharacters) {
-    $charactersList = [];
-    foreach($elementsKeys as $elementsKey) {
-        /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
-         $charactersList[] = strval($arrayOfCharacters[$elementsKey]);
-    
-     }
-     return $charactersList;
-}
 
 
 // foreach($randomElements as $randomElement) {

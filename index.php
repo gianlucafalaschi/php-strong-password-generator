@@ -38,16 +38,6 @@ $randomElements = array_rand($charactersArray,$passwordLength);
 /* La funzione genera elementi random che vengono salvati nell'array */
 $passwordArray = generatePasswordElement($randomElements, $charactersArray);
 
-
-// foreach($randomElements as $randomElement) {
-//     var_dump($charactersArray[$randomElement]);
-//     /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
-//      $passwordArray[] = strval($charactersArray[$randomElement]);
-
-//  }
-
-
-
 ?>
 
 

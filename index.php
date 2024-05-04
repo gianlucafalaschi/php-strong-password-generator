@@ -18,13 +18,27 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 
 <?php 
-/* se  l'input 'passwLength' e' stato dato dall'utente la variabile $passwordLength  prende quel valore, 
+/* se  l'input 'passwLength' e' stato dato dall'utente la variabile $passwordLength  prende quel valore 
+trasformato in un numero intero, 
 altrimenti prende valore di stringa vuota'  */
-$passwordLength = isset($_GET['passwLength']) ? $_GET['passwLength'] : '';
+$passwordLength = isset($_GET['passwLength']) ? intval($_GET['passwLength']) : '';
 
 /* lista dei caratteri possibili per la password */
 $charactersArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '!', '"', '$', '%', '&', '/', '(', ')', '=', '?', '{', '[', ']', '}', '\\', '+', '*', '-', '#', "'", '_', ',', '.', ';', ':', '<', '>', '@'];
-var_dump($charactersArray);
+
+/*  Array inizialmente vuoto che contiene i caratteri della password */
+$passwordArray = [];
+
+/* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
+lunghezza della password decisa dallo user  */
+$randomElements = array_rand($charactersArray,$passwordLength);
+foreach($randomElements as $randomElement) {
+    var_dump($charactersArray[$randomElement]);
+    $charactersArray[] = $charactersArray[$randomElement];
+
+}
+var_dump($charactersArray[$randomElement]);
+
 
 ?>
 

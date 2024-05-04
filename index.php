@@ -32,12 +32,14 @@ $passwordArray = [];
 /* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
 lunghezza della password decisa dallo user  */
 $randomElements = array_rand($charactersArray,$passwordLength);
+
 foreach($randomElements as $randomElement) {
     var_dump($charactersArray[$randomElement]);
-    $charactersArray[] = $charactersArray[$randomElement];
+    /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
+    $passwordArray[] = strval($charactersArray[$randomElement]);
 
 }
-var_dump($charactersArray[$randomElement]);
+var_dump($passwordArray);
 
 
 ?>

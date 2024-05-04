@@ -33,13 +33,24 @@ $passwordArray = [];
 lunghezza della password decisa dallo user  */
 $randomElements = array_rand($charactersArray,$passwordLength);
 
-foreach($randomElements as $randomElement) {
-    var_dump($charactersArray[$randomElement]);
-    /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
-    $passwordArray[] = strval($charactersArray[$randomElement]);
-
+/* fino a che l'array $passwordArray non contiene un numero di elementi uguali a quelli 
+dichiarati dallo user nella input,   */
+while(count($passwordArray) < $passwordLength) {
+    /* per ogni singolo elemento in $randomElements  */
+    foreach($randomElements as $randomElement) {
+        /* viene aggiunto l'elemento trasformato in stringa in $passwordArray  */
+        $passwordArray[] = strval($charactersArray[$randomElement]);
+    }
 }
+
 var_dump($passwordArray);
+// foreach($randomElements as $randomElement) {
+//     var_dump($charactersArray[$randomElement]);
+//     /* salva nella variabile tutti gli elementi random dopo averli trasformati in strighe */
+//     $passwordArray[] = strval($charactersArray[$randomElement]);
+
+// }
+// var_dump($passwordArray);
 
 
 ?>

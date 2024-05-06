@@ -25,18 +25,22 @@ require_once __DIR__ . '/functions.php';
 /* se  l'input 'passwLength' e' stato dato dall'utente la variabile $passwordLength  prende quel valore 
 trasformato in un numero intero, 
 altrimenti prende valore  null'  */
-$passwordLength = isset($_GET['passwLength']) ? intval($_GET['passwLength']) : null;
+$passwordLength = isset($_GET['passwLength']) ? intval($_GET['passwLength']) : '';
 
 /* lista dei caratteri possibili per la password */
 $charactersArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '!', '"', '$', '%', '&', '/', '(', ')', '=', '?', '{', '[', ']', '}', '\\', '+', '*', '-', '#', "'", '_', ',', '.', ';', ':', '<', '>', '@'];
 
+$passwordArray = [];
 
-/* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
-lunghezza della password decisa dallo user. Le chiavi degli elementi vengono salvate nella variabile  */
-$randomElements = array_rand($charactersArray,$passwordLength);
+if(!empty($passwordLength)){
+        /* prende elementi casuali dall'array di caratteri. Il numero di elementi viene dato dalla
+    lunghezza della password decisa dallo user. Le chiavi degli elementi vengono salvate nella variabile  */
+    $randomElements = array_rand($charactersArray,$passwordLength);
 
-/* La funzione genera elementi random che vengono salvati nell'array */
-$passwordArray = generatePasswordElement($randomElements, $charactersArray);
+    /* La funzione genera elementi random che vengono salvati nell'array */
+    $passwordArray = generatePasswordElement($randomElements, $charactersArray);
+}
+
 
 ?>
 
@@ -64,7 +68,7 @@ $passwordArray = generatePasswordElement($randomElements, $charactersArray);
                 <!--Password Alert -->
                 <div class="alert alert-success" role="alert">
                      <!-- unisce in una stringa tutti gl elementi dell'array $passwordArray e li stampa senza separatore  -->
-                     La tua password è: <br>   <?php echo implode('', $passwordArray);  ?>
+                     La tua password è: <br>   <?php echo implode('', $passwordArray);  ?> 
                 </div>
             </div>
         </div>
